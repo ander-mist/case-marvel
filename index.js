@@ -14,4 +14,6 @@ app.use('/login', Controller.LoginController);
 
 app.use('/register', Controller.RegisterController);
 
+app.use('/user', Controller.UserController);
+
 app.listen(PORT, () => console.log(`Listen at Port: ${PORT}`));

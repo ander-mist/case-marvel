@@ -1,6 +1,7 @@
 const { status, message } = require('./statusCode');
 const UserUtils = require('../utils/UserUtil');
 const UserService = require('../services/UserSevice');
+const validateToken = require('../authentication/validateToken');
 
 const validateFiels = async (req, res, next) => {
   const { name, email, password } = req.body;
@@ -33,7 +34,16 @@ const validateLoginFields = async (req, res, next) => {
   return next();
 };
 
+const validateAuth = async (req, res, next) => {
+  const { authorization } = req.headers;
+  if (!authorization) return res.status(status.Unauthorized).json(message.tokenNotFound);
+  const checkToken = validateToken(authorization);
+  if (checkToken === null) return res.status(status.Unauthorized).json(message.invalidToken);
+  return next();
+};
+
 module.exports = {
   validateFiels,
   validateLoginFields,
+  validateAuth,
 };
