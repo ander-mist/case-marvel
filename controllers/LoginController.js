@@ -15,4 +15,8 @@ LoginController.post('/', UserMiddleware.validateLoginFields, async (req, res) =
   return res.status(status.Created).json({ token: newToken });
 });
 
+LoginController.get('/', async (req, res) => {
+  res.status(200).send('ok');
+});
+
 module.exports = LoginController;
