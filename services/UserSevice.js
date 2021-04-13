@@ -28,8 +28,22 @@ const getUserLogin = async (payload) => {
   return userData;
 };
 
+const editUser = async (payload) => {
+  const edited = await User.update({
+    name: payload.name,
+    email: payload.email,
+    password: payload.password,
+  }, {
+    where: {
+      id: payload.id,
+    },
+  });
+  return edited;
+};
+
 module.exports = {
   registerUser,
   getEmail,
   getUserLogin,
+  editUser,
 };

@@ -16,6 +16,8 @@ const message = {
   emailField: 'Email must not be empty',
   passwordField: 'Password must not be empty',
   errorLogin: 'Invalid Email or Password',
+  tokenNotFound: 'Token not Found',
+  invalidToken: 'Your Token is not valid or has expired',
 };
 
 module.exports = {
