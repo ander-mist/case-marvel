@@ -12,7 +12,10 @@ LoginController.post('/', UserMiddleware.validateLoginFields, async (req, res) =
   if (!login) return res.status(status.Unauthorized).json(message.errorLogin);
   const { id, name, email } = login;
   const newToken = createToken({ id, name, email });
-  return res.status(status.Created).json({ token: newToken });
+  return res.status(status.Created).json({
+    id,
+    token: newToken,
+  });
 });
 
 LoginController.get('/', async (req, res) => {

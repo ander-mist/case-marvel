@@ -10,7 +10,9 @@ RegisterController.post('/', UserMiddlewares.validateFiels, async (req, res) => 
   const newUser = await RegisterService.registerUser({ userName, userEmail, password });
   const { id, name, email } = newUser;
   const getToken = createToken({ id, name, email });
-  return res.status(201).json({ token: getToken });
+  return res.status(201).json({
+    id, token: getToken,
+  });
 });
 
 module.exports = RegisterController;
