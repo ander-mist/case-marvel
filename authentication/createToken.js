@@ -4,7 +4,7 @@ const secret = 'secret-case-marvel';
 
 const headers = {
   algorithm: 'HS256',
-  expiresIn: '1d',
+  expiresIn: '30d',
 };
 
 const createToken = (payload) => {

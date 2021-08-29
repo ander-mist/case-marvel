@@ -14,6 +14,8 @@ LoginController.post('/', UserMiddleware.validateLoginFields, async (req, res) =
   const newToken = createToken({ id, name, email });
   return res.status(status.Created).json({
     id,
+    name,
+    email,
     token: newToken,
   });
 });

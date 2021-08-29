@@ -16,4 +16,6 @@ app.use('/register', Controller.RegisterController);
 
 app.use('/user', Controller.UserController);
 
+app.use('/marvel', Controller.MarvelController);
+
 app.listen(PORT, () => console.log(`Listen at Port: ${PORT}`));

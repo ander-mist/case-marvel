@@ -41,9 +41,19 @@ const editUser = async (payload) => {
   return edited;
 };
 
+const getUserInfo = async (userId) => {
+  const info = await User.findAll({
+    where: {
+      id: userId,
+    },
+  });
+  return info;
+};
+
 module.exports = {
   registerUser,
   getEmail,
   getUserLogin,
   editUser,
+  getUserInfo,
 };

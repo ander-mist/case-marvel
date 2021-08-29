@@ -11,7 +11,7 @@ RegisterController.post('/', UserMiddlewares.validateFiels, async (req, res) => 
   const { id, name, email } = newUser;
   const getToken = createToken({ id, name, email });
   return res.status(201).json({
-    id, token: getToken,
+    id, name, email, token: getToken,
   });
 });
 
